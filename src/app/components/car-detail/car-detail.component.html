@@ -1,0 +1,17 @@
+<table class="table table-bordered table-striped table-sm">
+    <thead>
+        <tr>
+            <td>Car Name</td>
+            <td>Brand Name</td>
+            <td>Color Name</td>
+            <td>Daily Price</td>
+        </tr>
+    </thead>
+
+    <tr *ngFor="let carDetail of carDetails">
+        <td>{{carDetail.carName}}</td>
+        <td>{{carDetail.brandName}}</td>
+        <td>{{carDetail.colorName}}</td>
+        <td>{{carDetail.dailyPrice}}</td>
+    </tr>
+</table>
