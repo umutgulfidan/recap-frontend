@@ -1,0 +1,38 @@
+#card{
+    float: left;
+    margin-top: 0;
+    margin: 10px;
+    border-radius: 10%;
+}
+#carName{
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+#prop{
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+  #img{
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    height: 200px;
+    object-fit: fill;
+  }
+  #button{
+    bottom: 0;
+    width: 100%;
+    border-radius: 0%;
+  }

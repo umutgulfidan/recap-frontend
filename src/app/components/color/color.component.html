@@ -1,3 +1,9 @@
 <ul class="list-group">
-    <li class="list-group-item list-group-item-dark" *ngFor="let color of colors">{{color.colorName}}</li>
+    <li routerLink="/cars" (click)="clearCurrentColor()" [class]="getAllColorClass()">Tüm Renkler</li>
+    <li routerLink="cars/colors/{{color.colorId}}" (click)="setCurrentColor(color)" [class]="getCurrentColorClass(color)" *ngFor="let color of colors">{{color.colorName}}</li>
   </ul>
+
+  <span *ngIf="currentColor" class="badge bg-success">
+    <b>Seçtiğiniz Kategori : </b>
+    {{currentColor.colorName}}
+  </span>

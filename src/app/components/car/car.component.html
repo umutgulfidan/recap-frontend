@@ -1,23 +1,18 @@
-<table class="table table-bordered table-striped table-sm">
-    <thead>
-        <tr>
-            <td >Id</td>
-            <td>Brand Id</td>
-            <td>Color Id</td>
-            <td>Car Name</td>
-            <td>Model Year</td>
-            <td>Daily Price</td>
-            <td>Description</td>
-        </tr>
-    </thead>
+<div *ngIf="dataLoaded == false" class="spinner-border text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
 
-    <tr *ngFor="let car of cars">
-        <td>{{car.id}}</td>
-        <td>{{car.brandId}}</td>
-        <td>{{car.colorId}}</td>
-        <td>{{car.carName}}</td>
-        <td>{{car.modelYear}}</td>
-        <td>{{car.dailyPrice}}</td>
-        <td>{{car.description}}</td>
-    </tr>
-</table>
+<div class="card-container">
+    <div id="card" class="card" style="width: 18rem;" *ngFor="let carDetail of carDetails ">
+      <img id="img" [src]="getCarImagePath(carDetail)" class="object-fit: cover" alt="...">
+      
+      <div class="card-body">
+        <h5 id="carName" class="card-title">{{carDetail.carName}}</h5>
+        <p id="prop" class="card-text">{{carDetail.description}}</p>
+        <p id="prop" class="card-text"><b>Marka:</b>{{carDetail.brandName}}</p>
+        <p id="prop" class="card-text"><b>Renk:</b>{{carDetail.colorName}}</p>
+        <p id="prop" class="card-text"><b>Günlük Ücret:</b>{{carDetail.dailyPrice}}</p>
+      </div>
+      <a id="button" routerLink="/carDetail/{{carDetail.id}}" class="btn btn-primary"><b>Kirala</b></a>
+    </div>
+  </div>

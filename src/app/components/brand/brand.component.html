@@ -1,3 +1,8 @@
 <ul class="list-group">
-    <li class="list-group-item list-group-item-secondary" *ngFor="let brand of brands">{{brand.brandName}}</li>
-  </ul>
+    <li routerLink="/cars" (click)="clearCurrentBrand()" [class]="getAllBrandClass()">Tüm Markalar</li>
+    <li routerLink="/cars/brands/{{brand.brandId}}" (click)="setCurrentBrand(brand)" [class]="getCurrentBrandClass(brand)" *ngFor="let brand of brands">{{brand.brandName}}</li>
+</ul>
+<span *ngIf="currentBrand" class="badge bg-success">
+  <b>Seçtiğiniz Kategori : </b>
+  {{currentBrand.brandName}}
+</span>

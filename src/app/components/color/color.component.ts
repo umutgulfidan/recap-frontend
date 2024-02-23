@@ -10,10 +10,16 @@ import { Color } from '../../modules/color';
 export class ColorComponent implements OnInit {
   
 colors:Color[] = []
+currentColor:Color = {colorId:0,colorName:""}
 constructor(private colorService:ColorService){}
 
+
   ngOnInit(): void {
-    this.getColors()
+    this.getColors();
+  }
+
+  setCurrentColor(color:Color){
+    this.currentColor = color
   }
 
   getColors(){
@@ -21,4 +27,27 @@ constructor(private colorService:ColorService){}
       this.colors = response.data
     })
   }
+  clearCurrentColor(){
+    this.currentColor = {colorId:0,colorName:""}
+  }
+
+  getCurrentColorClass(color:Color){
+    if(color == this.currentColor){
+      return 'list-group-item active';
+
+    }
+    else{
+      return 'list-group-item';
+    }
+    
+}
+
+getAllColorClass() {
+  if (this.currentColor.colorId==0) {
+    return 'list-group-item active';
+  }
+  return 'list-group-item';
+}
+
+
 }
